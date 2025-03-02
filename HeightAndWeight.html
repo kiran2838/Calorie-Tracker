@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Form</title>
+    <link rel="stylesheet" href="height.css">
+</head>
+<body>
+    
+<div class="navbar">
+   <a href="login.html"> <button class="back-button" onclick="goBack()">&#8592; Back</button></a>
+</div>
+
+<div class="container">
+    <h2>User Information Form</h2>
+    <form id="userForm">
+        <div class="form-group">
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" name="height" required>
+        </div>
+        <div class="form-group">
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" name="weight" required>
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+        </div>
+        <div class="form-group">
+            <label>Goal:</label><br>
+            <input type="radio" id="weightGain" name="goal" value="gain" required>
+            <label for="weightGain">Weight Gain</label><br>
+            <input type="radio" id="weightLoss" name="goal" value="loss" required>
+            <label for="weightLoss">Weight Loss</label>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="dci-result" style="margin-top: 20px; display: none;">
+        <h3>Your Daily Calorie Intake (DCI): <span id="dci-value"></span> kcal</h3>
+    </div>
+</div>
+
+<script>
+    function goBack() {
+        window.location.href = 'PreviousPage.html'; // Change to your desired page
+    }
+
+    // Get the form element
+    const form = document.getElementById('userForm');
+
+    // Add event listener for form submission
+    form.addEventListener('submit', function(event) {
+        // Prevent default form submission
+        event.preventDefault();
+
+        // Get form data
+        const formData = new FormData(form);
+
+        // Convert form data to JSON
+        const jsonData = {};
+        formData.forEach((value, key) => {
+            jsonData[key] = value;
+        });
+
+        // Calculate Daily Calorie Intake (DCI)
+        const weight = parseFloat(jsonData.weight);
+        const height = parseFloat(jsonData.height);
+        const age = parseInt(jsonData.age);
+        let DCI = 66.47 + (13.75 * weight) + (5.003 * height) - (6.755 * age);
+
+        // Adjust DCI based on goal
+        if (jsonData.goal === 'gain') {
+            DCI += 1000;
+        } else if (jsonData.goal === 'loss') {
+            DCI -= 500;
+        }
+
+        // Store form data and DCI in local storage
+        jsonData.DCI = DCI.toFixed(2);
+        localStorage.setItem('userData', JSON.stringify(jsonData));
+
+        // Redirect to the main page
+        window.location.href = 'MainPage.html';
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Calorie Counter</title>
+    <link rel="stylesheet" href="style1.css">
+    <script src="login.js"></script>
+</head>
+<body>
+
+<div class="navbar">
+   <a href="home1.html"><button class="back-button" onclick="goBack()">&#8592; Back</button></a>
+</div>
+
+<div class="form-modal">
+    <div class="form-toggle">
+        <button id="login-toggle" onclick="toggleLogin()">log in</button>
+        <button id="signup-toggle" onclick="toggleSignup()">sign up</button>
+    </div>
+    <div id="login-form">
+        <form>
+            <input type="text" placeholder="Enter email or username"/>
+            <input type="password" placeholder="Enter password"/>
+            <a href="HeightAndWeight.html"><button type="button" class="btn login">login</button></a>
+            <p><a href="javascript:void(0)">Forgotten account</a></p>
+            <hr/>
+        </form>
+    </div>
+    <div id="signup-form">
+        <form>
+            <input type="email" placeholder="Enter your email"/>
+            <input type="text" placeholder="Choose username"/>
+            <input type="password" placeholder="Create password"/>
+            <a href="HeightAndWeight.html"><button type="button" class="btn signup">create account</button></a>
+            <p>Clicking <strong>create account</strong> means that you agree to our <a href="javascript:void(0)">terms of services</a>.</p>
+            <hr/>
+        </form>
+    </div>
+</div>
+
+<script>
+    function goBack() {
+        window.location.href = 'PreviousPage.html'; // Change to your desired page
+    }
+
+    function getQueryParam(param) {
+        let urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    window.onload = function() {
+        let formType = getQueryParam('form');
+        if (formType === 'signup') {
+            toggleSignup();
+        } else {
+            toggleLogin();
+        }
+    };
+
+    function toggleSignup() {
+        document.getElementById("login-toggle").style.backgroundColor = "#fff";
+        document.getElementById("login-toggle").style.color = "#222";
+        document.getElementById("signup-toggle").style.backgroundColor = "#57b846";
+        document.getElementById("signup-toggle").style.color = "#fff";
+        document.getElementById("login-form").style.display = "none";
+        document.getElementById("signup-form").style.display = "block";
+    }
+
+    function toggleLogin() {
+        document.getElementById("login-toggle").style.backgroundColor = "#57B846";
+        document.getElementById("login-toggle").style.color = "#fff";
+        document.getElementById("signup-toggle").style.backgroundColor = "#fff";
+        document.getElementById("signup-toggle").style.color = "#222";
+        document.getElementById("signup-form").style.display = "none";
+        document.getElementById("login-form").style.display = "block";
+    }
+</script>
+</body>
+</html>
+

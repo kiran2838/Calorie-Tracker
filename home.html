@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="navbar.css">
+    <style>
+        /* Dark theme styles */
+        body {
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #070e16;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo img {
+            height: 60px;
+            margin-left: 50px;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #ff0000;
+        }
+        /* Card styles */
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+        .card {
+            position: relative;
+            width: 12rem; /* 48px */
+            height: 16rem; /* 64px */
+            overflow: hidden;
+            border-radius: 1rem; /* 16px */
+            background-color: #3d3c3d;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+            text-decoration: none; /* Added */
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1rem;
+        }
+        .card .blur {
+            position: absolute;
+            width: 14rem; /* 56px */
+            height: 12rem; /* 48px */
+            background-color: white;
+            filter: blur(50px);
+            left: -50%;
+            top: -50%;
+        }
+        /* Button styles */
+        .get-started-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background-color: #FF5733; /* Orange */
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: background-color 0.3s;
+            text-align: center;
+            font-size: 18px;
+        }
+        .get-started-button:hover {
+            background-color: #FF4500; /* Red */
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div style="text-align: center; margin-top: 50px;">
+    <h1 style="font-size: 36px; font-weight: bold;">Welcome to Our Website</h1>
+    <p style="max-width: 600px; margin: 20px auto; font-size: 18px;">
+        Explore our services and learn more about what we offer. Whether you're looking for ways to improve your health, find inner peace through meditation, or learn about our latest services, we've got you covered.
+    </p>
+</div>
+
+<div class="cards-container">
+    <a href="yoga.html" class="card">
+        <img src="https://img.freepik.com/free-photo/sporty-beautiful-young-woman-taking-professional-yoga-lessons-home_155003-41435.jpg?t=st=1716370926~exp=1716374526~hmac=acf2762e30d5bbd70e93c0364da75e2cffac6a024e4aff220c3bde6d32ccfc3e&w=740" alt="Card Image 1">
+        <div class="blur"></div>
+    </a>
+    <a href="personalizeddiet.html" class="card">
+        <img src="https://img.freepik.com/free-photo/healthy-fruit-salad-with-vegetables-pecans_53876-104496.jpg?t=st=1716370994~exp=1716374594~hmac=5d2739d48bc80f84734d4fbd95bf8c7a4f2f55682ad91ac537ceb2a2c2d593d2&w=740" alt="Card Image 2">
+        <div class="blur"></div>
+    </a>
+    <a href="meditation.html" class="card">
+        <img src="https://img.freepik.com/free-photo/studio-shot-young-fit-woman-doing-yoga-exercises-green-space_155003-14216.jpg?t=st=1716370944~exp=1716374544~hmac=4da2166c63a2d65de03571fa0d0378b24b4bbcec8f1119a23fab22e0e12d3770&w=740" alt="Card Image 3">
+        <div class="blur"></div>
+    </a>
+</div>
+
+<div style="text-align: center;">
+    <a href="home1.html" class="get-started-button">Get Started</a>
+</div>
+
+</body>
+</html>
